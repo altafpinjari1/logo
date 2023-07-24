@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Logo Particles</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color:black;
+      }
+      .main{
+        height: 280px;
+        text-align: center;
+        justify-content: center;
+        margin: auto;
+      }
+      .image1{
+        height: 150px;
+        position: relative;
+        top: -180px;
+        left: -550px;
+        animation: mymove 2s infinite;
+}
+
+@keyframes mymove {
+    from {rotate: 0deg;}
+  to {rotate: 360deg;}
+  
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="main">
+        <div class="first">
+            <img class="image1" src="./logo-png.png" alt="">
+        </div>
+        <img src="./logo-png.png" id="logo" alt="Logo" />
+    </div>
+
+    <script src="https://nextparticle.nextco.de/nextparticle.min.js"></script>
+    <script>
+      nextParticle = new NextParticle({
+        image: document.all.logo,
+        width: window.innerWidth,
+        height: window.innerHeight,
+        maxWidth: window.innerWidth * 1,
+        particleGap: 0
+      });
+      window.onresize = function () {
+        if (window.innerWidth > 600) {
+          nextParticle.width = window.innerWidth - 10;
+          nextParticle.height = window.innerHeight - 10;
+          nextParticle.start();
+        }
+      };
+    </script>
+  </body>
+</html>
